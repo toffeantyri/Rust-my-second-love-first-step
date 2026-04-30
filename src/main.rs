@@ -3,7 +3,15 @@ mod event;
 use event::Event;
 
 fn main() {
-    test1();
+    println!("{}", learn_check_age(Some(25)));
+}
+
+fn learn_check_age(age: Option<u8>) -> &'static str {
+    match age {
+        Some(25) => "Доступ разрешен",
+        Some(_) => "Доступ запрещен",
+        None => "Доступ запрещен",
+    }
 }
 
 fn test1() {
