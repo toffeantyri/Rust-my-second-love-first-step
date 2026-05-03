@@ -1,9 +1,17 @@
 use std::io;
 mod event;
+mod summary;
+use crate::summary::Summary;
 use event::Event;
 
 fn main() {
-    str_comp_example();
+    let news = summary::NewsArticle {
+        headline: String::from("Rust is Top!"),
+        location: String::from("Russia"),
+        author: String::from("Toffy"),
+        content: String::from("Anybody can learn Rust!"),
+    };
+    println!("{}", news.summarize());
 }
 
 fn str_comp_example() {
