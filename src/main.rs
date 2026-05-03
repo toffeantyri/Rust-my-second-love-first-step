@@ -3,6 +3,19 @@ mod event;
 use event::Event;
 
 fn main() {
+    vector_any();
+}
+
+fn vector_any() {
+    let v1 = vec![1, 2, 3, 4, 5];
+    let v2 = vec![0; 10];
+
+    for v in v2 {
+        println!("{}", v);
+    }
+}
+
+fn check_temp_fun() {
     let temp1 = 77.0; // корректная температура
     let temp2 = -500.0; // ниже абсолютного нуля
 
