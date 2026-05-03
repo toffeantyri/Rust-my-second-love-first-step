@@ -3,7 +3,14 @@ mod event;
 use event::Event;
 
 fn main() {
-    vector_any();
+    str_comp_example();
+}
+
+fn str_comp_example() {
+    let s1 = String::from("Hello");
+    let s2 = s1.clone();
+    println!("{}", s1);
+    println!("{}", s2);
 }
 
 fn vector_any() {
