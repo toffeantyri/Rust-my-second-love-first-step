@@ -3,7 +3,37 @@ mod event;
 use event::Event;
 
 fn main() {
-    println!("{}", learn_check_age(Some(25)));
+    let temp1 = 77.0; // корректная температура
+    let temp2 = -500.0; // ниже абсолютного нуля
+
+    let c1 = fahrenheit_to_celsius(temp1);
+    let c2 = fahrenheit_to_celsius(temp2);
+
+    check_temp(c1);
+    check_temp(c2);
+}
+
+fn fahrenheit_to_celsius(f: f64) -> Result<f64, &'static str> {
+    if f < -459.67 {
+        Err("Температура ниже абсолютного нуля!")
+    } else {
+        Ok((f - 32.0) * 5.0 / 9.0)
+    }
+}
+
+fn check_temp(temp: Result<f64, &str>) {
+    match temp {
+        Ok(c) => println!("Температура в цельсиях: {:.1}°C", c),
+        Err(e) => println!("Ошибка: {}", e),
+    }
+}
+
+fn learn_check_age2() {
+    let unchecked_age = Some(25);
+    if let Some(age) = unchecked_age {
+        println!("Возраст: {}", age);
+    }
+    println!("{}", learn_check_age(unchecked_age));
 }
 
 fn learn_check_age(age: Option<u8>) -> &'static str {
