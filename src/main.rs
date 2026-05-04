@@ -5,7 +5,22 @@ use crate::summary::Summary;
 use event::Event;
 
 fn main() {
-    kvadratnoe_uravnenie();
+    kortezh_tuples();
+}
+
+fn kortezh_tuples() {
+    let tuple: (i32, f64, String) = (12, 34.6, String::from("123"));
+    let pupil = ("Denis", 11);
+    let (name, grade) = pupil;
+    println!("Name is {}, grade is {}", name, grade);
+    let name2 = pupil.0;
+    let grade2 = pupil.1;
+}
+
+fn array_learn() {
+    let empty_array = [0; 10]; //10 x 0
+    let int_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    let int_array: [i16; 10] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 }
 
 fn kvadratnoe_uravnenie() {
