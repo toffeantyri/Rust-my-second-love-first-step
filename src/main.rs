@@ -5,13 +5,20 @@ use crate::summary::Summary;
 use event::Event;
 
 fn main() {
-    let news = summary::NewsArticle {
-        headline: String::from("Rust is Top!"),
-        location: String::from("Russia"),
-        author: String::from("Toffy"),
-        content: String::from("Anybody can learn Rust!"),
-    };
-    println!("{}", news.summarize());
+    io_learning();
+}
+
+fn io_learning() {
+    let mut name = String::new();
+    println!("Input your name: ");
+    match io::stdin().read_line(&mut name) {
+        Ok(_) => {
+            println!("Hello {}", name)
+        }
+        Err(e) => {
+            println!("Error input {}", e)
+        }
+    }
 }
 
 fn str_comp_example() {
