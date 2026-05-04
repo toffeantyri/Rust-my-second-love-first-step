@@ -5,7 +5,21 @@ use crate::summary::Summary;
 use event::Event;
 
 fn main() {
-    kortezh_tuples();
+    any_fn();
+}
+
+fn any_fn() {
+    // let mut num_str = String::new();
+    // if let Ok(_) = io::stdin().read_line(&mut num_str) {
+    //     let num = num_str.trim().parse::<i32>();
+    //     println!("{:02}", num.unwrap())
+    // }
+
+    let mut num_str2 = String::new();
+    io::stdin()
+        .read_line(&mut num_str2)
+        .expect("Error of input");
+    println!("{}", num_str2);
 }
 
 fn kortezh_tuples() {
