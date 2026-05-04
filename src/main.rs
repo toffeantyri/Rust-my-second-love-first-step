@@ -5,7 +5,58 @@ use crate::summary::Summary;
 use event::Event;
 
 fn main() {
-    io_learning();
+    kvadratnoe_uravnenie();
+}
+
+fn kvadratnoe_uravnenie() {
+    loop {
+        //ax^2+bx+c=0
+        let mut a_str = String::new();
+        let mut b_str = String::new();
+        let mut c_str = String::new();
+        println!("Вычисление корней квадратного уравнения \n ax^2 + bx + c = 0");
+        println!("Введите a");
+
+        match io::stdin().read_line(&mut a_str) {
+            Ok(_) => {}
+            Err(e) => {
+                println!("Input error {}", e)
+            }
+        }
+
+        println!("Введите b");
+        match io::stdin().read_line(&mut b_str) {
+            Ok(_) => {}
+            Err(e) => println!("Input error  {}", e),
+        }
+
+        println!("Введите c");
+        match io::stdin().read_line(&mut c_str) {
+            Ok(_) => {}
+            Err(e) => println!("Input error  {}", e),
+        }
+
+        let a: f64 = a_str.trim().parse().unwrap();
+        let b: f64 = b_str.trim().parse().unwrap();
+        let c: f64 = c_str.trim().parse().unwrap();
+
+        println!("{}x^2 + {}x + {} = 0", a, b, c);
+
+        let d: f64 = (b * b) - 4f64 * a * c;
+        if d > 0f64 {
+            let x1 = ((-b) + d.sqrt()) / 2f64 * a;
+            let x2 = ((-b) - d.sqrt()) / 2f64 * a;
+            println!(
+                "Решено, есть 2 корня. D = {}, \n x1 = {}, \n x2 = {}",
+                d, x1, x2
+            );
+        } else if d == 0.0 {
+            let x = (-b) / 2.0 * a;
+            println!("Решено, есть 1 корень. D = {}, \n x1 = {}", d, x);
+        } else {
+            println!("Решено. Корней нет. D = {}", d,);
+        }
+    }
 }
 
 fn io_learning() {
