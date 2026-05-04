@@ -9,11 +9,18 @@ fn main() {
 }
 
 fn any_fn() {
-    // let mut num_str = String::new();
-    // if let Ok(_) = io::stdin().read_line(&mut num_str) {
-    //     let num = num_str.trim().parse::<i32>();
-    //     println!("{:02}", num.unwrap())
-    // }
+    let mut num_str0 = String::new();
+    io::stdin().read_line(&mut num_str0).expect("error");
+    match num_str0.trim().parse::<i32>() {
+        Ok(n) => println!("{}", n),
+        Err(e) => println!("{}", e),
+    }
+
+    let mut num_str = String::new();
+    if let Ok(_) = io::stdin().read_line(&mut num_str) {
+        let num = num_str.trim().parse::<i32>();
+        println!("{:02}", num.unwrap())
+    }
 
     let mut num_str2 = String::new();
     io::stdin()
