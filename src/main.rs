@@ -1,3 +1,4 @@
+use rand::Rng;
 use std::io;
 mod event;
 mod summary;
@@ -5,7 +6,15 @@ use crate::summary::Summary;
 use event::Event;
 
 fn main() {
-    any_fn();
+    random_fn();
+}
+
+fn random_fn() -> () {
+    for i in 0..100 {
+        let r = rand::thread_rng().gen_range(0..=10);
+
+        println!("{}", r);
+    }
 }
 
 fn any_fn() {
