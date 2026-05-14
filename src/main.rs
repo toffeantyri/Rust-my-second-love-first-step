@@ -2,7 +2,6 @@ use rand::Rng;
 use std::io;
 mod event;
 mod summary;
-use crate::summary::Summary;
 use event::Event;
 
 ///Тестовая программа для изучения синтаксиса языка Rust (cargo doc --open)
@@ -10,8 +9,8 @@ fn main() {
     random_fn();
 }
 
-fn random_fn() -> () {
-    for i in 0..100 {
+fn random_fn() {
+    for _i in 0..100 {
         let r = rand::thread_rng().gen_range(0..=10);
 
         println!("{}", r);
@@ -27,7 +26,7 @@ fn any_fn() {
     }
 
     let mut num_str = String::new();
-    if let Ok(_) = io::stdin().read_line(&mut num_str) {
+    if io::stdin().read_line(&mut num_str).is_ok() {
         let num = num_str.trim().parse::<i32>();
         println!("{:02}", num.unwrap())
     }
@@ -40,18 +39,18 @@ fn any_fn() {
 }
 
 fn kortezh_tuples() {
-    let tuple: (i32, f64, String) = (12, 34.6, String::from("123"));
+    let _tuple: (i32, f64, String) = (12, 34.6, String::from("123"));
     let pupil = ("Denis", 11);
     let (name, grade) = pupil;
     println!("Name is {}, grade is {}", name, grade);
-    let name2 = pupil.0;
-    let grade2 = pupil.1;
+    let _name2 = pupil.0;
+    let _grade2 = pupil.1;
 }
 
 fn array_learn() {
-    let empty_array = [0; 10]; //10 x 0
-    let int_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
-    let int_array: [i16; 10] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    let _empty_array = [0; 10]; //10 x 0
+    let _int_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
+    let _int_array: [i16; 10] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 }
 
 fn kvadratnoe_uravnenie() {
@@ -126,7 +125,7 @@ fn str_comp_example() {
 }
 
 fn vector_any() {
-    let v1 = vec![1, 2, 3, 4, 5];
+    let _v1 = [1, 2, 3, 4, 5];
     let v2 = vec![0; 10];
 
     for v in v2 {
@@ -188,7 +187,7 @@ fn test1() {
     }
 
     println!("{title}");
-    println!("Введите {}", "число: ");
+    println!("Введите число: ");
 
     let mut guess = String::new();
 
