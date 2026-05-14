@@ -5,6 +5,7 @@ mod summary;
 use crate::summary::Summary;
 use event::Event;
 
+///Тестовая программа для изучения синтаксиса языка Rust (cargo doc --open)
 fn main() {
     random_fn();
 }
@@ -239,5 +240,14 @@ fn counting(a: i32) {
     while a1 < a {
         println!("{a1}");
         a1 += 1;
+    }
+}
+
+#[cfg(test)]
+mod tests {
+
+    #[test]
+    fn test1() {
+        assert_eq!(2 + 2, 4);
     }
 }
