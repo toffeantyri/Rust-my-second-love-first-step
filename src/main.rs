@@ -3,10 +3,11 @@ use std::io;
 mod event;
 mod summary;
 use event::Event;
+mod csvdata;
 
 ///Тестовая программа для изучения синтаксиса языка Rust (cargo doc --open)
 fn main() {
-    random_fn();
+    csvdata::csvdata();
 }
 
 fn random_fn() {
