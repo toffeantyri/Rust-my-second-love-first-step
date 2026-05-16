@@ -1,5 +1,5 @@
 use rand::Rng;
-use std::{io, vec};
+use std::{f64::consts, io, vec};
 mod event;
 mod summary;
 use event::Event;
@@ -7,7 +7,14 @@ mod csvdata;
 
 ///Тестовая программа для изучения синтаксиса языка Rust (cargo doc --open)
 fn main() {
-    for_by_iter();
+    print_os_arch();
+}
+
+fn print_os_arch() {
+    let pointer_width_bits = std::mem::size_of::<*const ()>() * 8;
+    println!("Разрядность указателя {} бит", pointer_width_bits);
+    println!("Целевая архитектура {}", std::env::consts::ARCH);
+    println!("Целевая платформа {}", std::env::consts::OS);
 }
 
 fn for_by_iter() {
