@@ -1,5 +1,5 @@
 use rand::Rng;
-use std::io;
+use std::{io, vec};
 mod event;
 mod summary;
 use event::Event;
@@ -7,7 +7,33 @@ mod csvdata;
 
 ///Тестовая программа для изучения синтаксиса языка Rust (cargo doc --open)
 fn main() {
-    csvdata::csvdata();
+    for_by_iter();
+}
+
+fn for_by_iter() {
+    let vector = vec![1, 2, 3, 4, 5];
+
+    for v in vector {
+        println!("item: {}", v);
+    }
+    //println!("{:?}", vector); //будет ошибка - vector уже недоступен
+    //  тк его потребил (move) цикл for
+    let vector1 = vec![1, 2, 3, 4, 5];
+
+    for v in &vector1 {
+        println!("item: {}", v);
+    }
+    println!("{:?}", vector1);
+    //все ок - передаем только ссылку на вектор
+
+    let mut vector2 = vec![1, 2, 3, 4, 5];
+
+    for v in &mut vector2 {
+        //for v in vector2.iter_mut() - аналог {
+        *v *= *v;
+        println!("item: {}", v);
+    }
+    println!("{:?}", vector2); // этот вариант если надо изменить элементы коллекции
 }
 
 fn random_fn() {
