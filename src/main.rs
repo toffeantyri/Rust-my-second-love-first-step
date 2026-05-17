@@ -3,11 +3,17 @@ use std::{f64::consts, i32, io, vec};
 mod event;
 mod summary;
 use event::Event;
+
+use crate::shape::{Rectangle, Shape};
 mod csvdata;
+mod shape;
 
 ///Тестовая программа для изучения синтаксиса языка Rust (cargo doc --open)
 fn main() {
     print_text_by_file();
+
+    let rect = Rectangle::new(10.0, 20.0);
+    println!("{}", rect.area())
 }
 
 fn print_text_by_file() -> () {
