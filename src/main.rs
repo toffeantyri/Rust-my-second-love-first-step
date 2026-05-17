@@ -1,5 +1,5 @@
 use rand::Rng;
-use std::{f64::consts, io, vec};
+use std::{f64::consts, i32, io, vec};
 mod event;
 mod summary;
 use event::Event;
@@ -7,7 +7,20 @@ mod csvdata;
 
 ///Тестовая программа для изучения синтаксиса языка Rust (cargo doc --open)
 fn main() {
-    on_off_features();
+    panic_check_num();
+}
+
+fn panic_check_num() {
+    println!("Input number: ");
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).expect("Error input");
+
+    let num: i32 = input.trim().parse::<i32>().expect("Error parce");
+    if num < 0 {
+        panic!("Number is less zero");
+    } else {
+        println!("Введеное число больше ноля: {}", num);
+    }
 }
 
 fn on_off_features() {
