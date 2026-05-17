@@ -7,7 +7,12 @@ mod csvdata;
 
 ///Тестовая программа для изучения синтаксиса языка Rust (cargo doc --open)
 fn main() {
-    panic_check_num();
+    print_text_by_file();
+}
+
+fn print_text_by_file() -> () {
+    let content = include_str!("data.txt");
+    println!("{}", content);
 }
 
 fn panic_check_num() {
