@@ -17,6 +17,14 @@ fn main() {
     enum_test();
 }
 
+fn assert_example() {
+    let a = 5;
+    let b = 4;
+
+    assert!(a + b == 10, "Summ not equal 10");
+    println!("Test Success")
+}
+
 fn enum_test() {
     let messages = [
         enum_test::Message::Move { x: 10, y: 20 },
