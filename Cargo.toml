@@ -2,9 +2,31 @@
 name = "guessing_game"
 version = "0.1.0"
 edition = "2024"
+authors = ["Toffeantyri <toffeantyri@gmail.com>"]
+licence = "MIT"
+repository = "https://github.com/toffeantyri/Rust-my-second-love-first-step"
 
 [dependencies]
 rand = "0.8"
+serde = { version = "1.0", features = ["derive"]}
+tokio = { version = "1.0", features = ["full"]}
+
+[dev-dependencies]
+pretty_assertions = "1.0"
+
+[features]
+default = ["no_std"]
+std = []
+no_std = []
+
+
+[profile.release]
+opt-level = 3
+
+#opt-level 0 - min opt perfomanse, 3 - max opt performance, s - size of file opt, z - agressive size of file opt
+
+[profile.dev]
+opt-level = 0
 
 [lints.rust]
 warnings = "allow"

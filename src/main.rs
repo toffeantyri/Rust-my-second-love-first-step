@@ -7,7 +7,19 @@ mod csvdata;
 
 ///Тестовая программа для изучения синтаксиса языка Rust (cargo doc --open)
 fn main() {
-    print_os_arch();
+    on_off_features();
+}
+
+fn on_off_features() {
+    #[cfg(feature = "no_std")]
+    {
+        println!("FEATURE: NO STD - on ")
+    }
+
+    #[cfg(not(feature = "no_std"))]
+    {
+        println!("FEATURE: NO STD - off ")
+    }
 }
 
 fn print_os_arch() {
