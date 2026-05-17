@@ -14,7 +14,17 @@ mod shape;
 
 ///Тестовая программа для изучения синтаксиса языка Rust (cargo doc --open)
 fn main() {
-    enum_test();
+    stdin_test();
+}
+
+fn stdin_test() -> () {
+    let stdin = io::stdin();
+    println!("Input string (Ctrl+D for End):");
+
+    for (i, line) in stdin.lines().enumerate() {
+        let line = line.expect("Error reading of line");
+        println!("Line {} : {}", i + 1, line);
+    }
 }
 
 fn assert_example() {
