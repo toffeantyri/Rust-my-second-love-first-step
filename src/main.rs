@@ -14,7 +14,14 @@ mod shape;
 
 ///Тестовая программа для изучения синтаксиса языка Rust (cargo doc --open)
 fn main() {
-    stdin_test();
+    filter_example();
+}
+
+fn filter_example() {
+    let v = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    let even_nums: Vec<&i32> = v.iter().filter(|&x| x % 2 == 0).collect();
+    println!("{:?}", v);
+    println!("{:?}", even_nums);
 }
 
 fn stdin_test() -> () {
