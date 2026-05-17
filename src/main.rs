@@ -4,16 +4,29 @@ mod event;
 mod summary;
 use event::Event;
 
-use crate::shape::{Rectangle, Shape};
+use crate::{
+    enum_test::{Message, process_message},
+    shape::{Rectangle, Shape},
+};
 mod csvdata;
+mod enum_test;
 mod shape;
 
 ///Тестовая программа для изучения синтаксиса языка Rust (cargo doc --open)
 fn main() {
-    print_text_by_file();
+    enum_test();
+}
 
-    let rect = Rectangle::new(10.0, 20.0);
-    println!("{}", rect.area())
+fn enum_test() {
+    let messages = [
+        enum_test::Message::Move { x: 10, y: 20 },
+        Message::Write(String::from("My message")),
+        Message::Quit,
+    ];
+
+    for item in &messages {
+        process_message(item);
+    }
 }
 
 fn print_text_by_file() -> () {
