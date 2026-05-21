@@ -2,7 +2,13 @@ use std::fs;
 use std::io::{self, Write};
 
 fn main() {
-    create_write_file();
+    read_from_file();
+}
+
+fn read_from_file() -> io::Result<()> {
+    let content = fs::read_to_string("example_file.txt")?;
+    println!("{}", content);
+    Ok(())
 }
 
 fn create_write_file() -> io::Result<()> {
