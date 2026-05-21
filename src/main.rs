@@ -2,7 +2,13 @@ use std::fs;
 use std::io::{self, Write};
 
 fn main() {
-    check_file_exist();
+    remove_file();
+}
+
+fn remove_file() -> io::Result<()> {
+    let path = "example_file.txt";
+    fs::remove_file(path)?;
+    Ok(())
 }
 
 fn check_file_exist() {
