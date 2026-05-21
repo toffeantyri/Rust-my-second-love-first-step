@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 pub fn csvdata() {
     let csv_data = "\
 Название, Диаметр (км), Масса (Кг)

@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 pub trait Summary {
     fn summarize(&self) -> String;
 }

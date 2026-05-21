@@ -1,13 +1,14 @@
+#![allow(dead_code)]
+#![allow(unused_imports)]
 use rand::Rng;
 use std::{f64::consts, i32, io, vec};
 mod event;
 mod summary;
-use event::Event;
-
 use crate::{
     enum_test::{Message, process_message},
     shape::{Rectangle, Shape},
 };
+use event::Event;
 mod csvdata;
 mod enum_test;
 mod shape;
@@ -342,6 +343,7 @@ fn event_list() {
     }
 }
 
+#[allow(dead_code)]
 fn counting(a: i32) {
     let mut a1 = 0;
     while a1 < a {

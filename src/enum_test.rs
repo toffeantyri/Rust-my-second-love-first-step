@@ -1,3 +1,4 @@
+#![allow(dead_code)]
 pub enum Message {
     Quit,
     Move { x: i32, y: i32 },
