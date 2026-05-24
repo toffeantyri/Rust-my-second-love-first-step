@@ -1,10 +1,21 @@
-use std::fs;
 use std::io::{self, Write};
+use std::{fs, string};
 
 fn main() {
-    input_and_divide();
+    stringer();
 }
 
+fn stringer() {
+    let text = "Programmin on Rust language - its fun";
+    let substring = "Rust";
+
+    match text.find(substring) {
+        Some(v) => println!("Substring {} is exist, position : {} ", substring, v),
+        None => println!("Substring is not exist"),
+    }
+}
+
+#[allow(dead_code)]
 fn input_and_divide() {
     let mut input = String::new();
 
@@ -28,6 +39,7 @@ fn input_and_divide() {
     }
 }
 
+#[allow(dead_code)]
 fn divide(x: f64, y: f64) -> Result<f64, String> {
     if y == 0f64 {
         Err(String::from("Denominator equals 0"))
