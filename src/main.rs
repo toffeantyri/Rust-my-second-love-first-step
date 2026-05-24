@@ -2,7 +2,45 @@ use std::fs;
 use std::io::{self, Write};
 
 fn main() {
-    remove_file();
+    input_and_divide();
+}
+
+fn input_and_divide() {
+    let mut input = String::new();
+
+    println!("Input numerator: ");
+    io::stdin().read_line(&mut input).expect("Input error");
+
+    let numerator = parse_f64(&input);
+
+    input.clear();
+
+    println!("Input denominator: ");
+
+    io::stdin().read_line(&mut input).expect("Input error");
+    let denominator = parse_f64(&input);
+
+    let result = numerator.and_then(|num| denominator.and_then(|den| divide(num, den)));
+
+    match result {
+        Ok(res) => println!("Result {}", res),
+        Err(e) => println!("{}", e),
+    }
+}
+
+fn divide(x: f64, y: f64) -> Result<f64, String> {
+    if y == 0f64 {
+        Err(String::from("Denominator equals 0"))
+    } else {
+        Ok(x / y)
+    }
+}
+
+fn parse_f64(input: &str) -> Result<f64, String> {
+    return input
+        .trim()
+        .parse::<f64>()
+        .map_err(|_| String::from("Parce error"));
 }
 
 fn remove_file() -> io::Result<()> {
